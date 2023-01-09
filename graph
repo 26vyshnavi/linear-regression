@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate some random data to fit a line to
+x = np.sort(np.random.rand(10))
+y = x + np.random.randn(10) * 0.3
+
+# Use the polyfit function to fit a line to the data
+coefficients = np.polyfit(x, y, 1)
+polynomial = np.poly1d(coefficients)
+y_predicted = polynomial(x)
+
+# Plot the original data and the fitted line
+plt.plot(x, y, 'o', x, y_predicted, '-')
+plt.show()
